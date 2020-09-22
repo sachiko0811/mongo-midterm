@@ -4,7 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
-const connectionString = "mongodb+srv://sachiko95:lucky7@cluster0.ilksw.mongodb.net/blog-engine?retryWrites=true&w=majority"
+require('dotenv').config()
+const env = process.env
+const connectionString = env.DB_CONNECTION
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -27,7 +29,6 @@ app.post('/quotes', (req, res) => {
 //   console.log('Connected to Database')
 // })
 
-// mongodb+srv://sachiko95:lucky7@cluster0.ilksw.mongodb.net/blog-engine?retryWrites=true&w=majority
 
 // MongoClient.connect(connectionString, {
 //     useUnifiedTopology: true
